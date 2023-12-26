@@ -35,7 +35,7 @@ pipeline {
 				sh "cd terraform;pwd"
 					script {
 						if(params.tf_vars == "") {
-							sh "terraform plan"				
+							sh "cd terraform;terraform plan"				
 						}
 						else{
 							sh 'terraform plan -var="$tf_vars"'				
@@ -55,10 +55,10 @@ pipeline {
 				sh "cd terraform;pwd"
 					script {
 						if(params.tf_vars == "") {
-							sh "terraform apply --auto-approve"				
+							sh "cd terraform;terraform apply --auto-approve"				
 						}
 						else{
-							sh 'terraform apply -var="$tf_vars" --auto-approve'				
+							sh 'cd terraform;terraform apply -var="$tf_vars" --auto-approve'				
 						
 					}
 				}
@@ -72,8 +72,8 @@ pipeline {
 			}
             steps {
 					sh "cd terraform;pwd"
-					sh "terraform plan --destroy"
-					sh "terraform destroy --auto-approve"
+					sh "cd terraform;terraform plan --destroy"
+					sh "cd terraform;terraform destroy --auto-approve"
 				
             }
         }
