@@ -1,7 +1,7 @@
 ## APP configurations
 #====================================
 
-region       = "us-west-2"
+region       = "ap-south-1"
 app_name     = "ecs-demo"
 env          = "dev"
 app_services = ["stocksapp", "stocksapi"]
@@ -10,7 +10,7 @@ app_services = ["stocksapp", "stocksapi"]
 #====================================
 
 cidr               = "10.10.0.0/16"
-availability_zones = ["us-west-2a", "us-west-2b"]
+availability_zones = ["ap-south-1a", "ap-south-1b"]
 public_subnets     = ["10.10.50.0/24", "10.10.51.0/24"]
 private_subnets    = ["10.10.0.0/24", "10.10.1.0/24"]
 
