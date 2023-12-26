@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Terraform action - init') { 
             steps {
-				sh ('terraform init')
+				sh ('cd terraform;terraform init')
             }
         }
 		stage('Terraform action - plan') { 
@@ -32,7 +32,7 @@ pipeline {
 				}
 			}
             steps {
-				sh "pwd"
+				sh "cd terraform;pwd"
 					script {
 						if(params.tf_vars == "") {
 							sh "terraform plan"				
@@ -52,7 +52,7 @@ pipeline {
 				}
 			}
             steps {
-				sh "pwd"
+				sh "cd terraform;pwd"
 					script {
 						if(params.tf_vars == "") {
 							sh "terraform apply --auto-approve"				
@@ -71,7 +71,7 @@ pipeline {
 				}
 			}
             steps {
-					sh "pwd"
+					sh "cd terraform;pwd"
 					sh "terraform plan --destroy"
 					sh "terraform destroy --auto-approve"
 				
